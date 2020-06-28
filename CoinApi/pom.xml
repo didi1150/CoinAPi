@@ -54,6 +54,22 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<configuration>
+					<!-- put your configurations here -->
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
 				<version>1.5</version>
 				<executions>
@@ -85,7 +101,7 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-	
+
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -125,5 +141,5 @@
 			<organizationUrl>https://github.com/didi1150/CoinAPi</organizationUrl>
 		</developer>
 	</developers>
-	
+
 </project>
