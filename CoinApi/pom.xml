@@ -85,20 +85,7 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-	<settings>
-		<profiles>
-			<profile>
-				<id>ossrh</id>
-				<activation>
-					<activeByDefault>true</activeByDefault>
-				</activation>
-				<properties>
-					<gpg.executable>gpg2</gpg.executable>
-					<gpg.passphrase>the_pass_phrase</gpg.passphrase>
-				</properties>
-			</profile>
-		</profiles>
-	</settings>
+	
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -138,4 +125,5 @@
 			<organizationUrl>https://github.com/didi1150/CoinAPi</organizationUrl>
 		</developer>
 	</developers>
+	
 </project>
