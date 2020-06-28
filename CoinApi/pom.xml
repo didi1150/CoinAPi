@@ -111,4 +111,12 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<developers>
+		<developer>
+			<name>Dezhong Zhuang</name>
+			<email>didicomputing@gmail.com</email>
+			<organization>io.github.didi1150</organization>
+			<organizationUrl>https://github.com/didi1150/CoinAPi</organizationUrl>
+		</developer>
+	</developers>
 </project>
