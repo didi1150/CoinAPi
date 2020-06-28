@@ -69,6 +69,7 @@
 		</plugins>
 	</build>
 	<packaging>jar</packaging>
+
 	<name>CoinApi for CoinSystem</name>
 	<description>That is the Api for the CoinSystem
     </description>
