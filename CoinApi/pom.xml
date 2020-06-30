@@ -4,8 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.didi1150</groupId>
 	<artifactId>CoinApi</artifactId>
-	<version>0.0.1-Snapshot</version>
+	<version>0.0.2</version>
 	<build>
+		<defaultGoal>clean package install</defaultGoal>
+		<finalName>CoinAPI-${project.version}</finalName>
+		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -113,6 +122,9 @@
 		<developerConnection>scm:git:git://github.com/didi1150/CoinAPi.git</developerConnection>
 		<url>https://github.com/didi1150/CoinAPi</url>
 	</scm>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<repositories>
 		<repository>
 			<id>spigot-repo</id>
