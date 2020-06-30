@@ -13,8 +13,20 @@ public class CoinMain extends JavaPlugin {
 	FileConfiguration cfg = this.getConfig();
 	public File file = new File("plugins/" + this.getName(), "config.yml");
 
-	@Override
-	public void onEnable() {
+
+	private void saveCfg() {
+		try {
+			cfg.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void disconnect() {
+		MySQL.disconnect();
+	}
+	
+	public void init() {
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
@@ -37,18 +49,4 @@ public class CoinMain extends JavaPlugin {
 		MySQL.database = cfg.getString("database");
 		MySQL.connect();
 	}
-
-	private void saveCfg() {
-		try {
-			cfg.save(file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void onDisable() {
-		MySQL.disconnect();
-	}
-
 }
