@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.didi1150</groupId>
 	<artifactId>CoinApi</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<build>
 		<plugins>
 			<plugin>
