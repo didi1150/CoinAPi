@@ -11,12 +11,8 @@ public class CoinMain{
 	File file = new File("plugins/CoinApi", "config.yml");
 	FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
-	public void disconnect() {
+	public void close() {
 		MySQL.disconnect();
-	}
-
-	public void connect() {
-		MySQL.connect();
 	}
 
 	public void init() {
@@ -31,6 +27,7 @@ public class CoinMain{
 		MySQL.database = cfg.getString("database");
 		MySQL.host = cfg.getString("host");
 		MySQL.port = cfg.getString("port");
+		MySQL.connect();
 	}
 
 	private void saveCfg() {
