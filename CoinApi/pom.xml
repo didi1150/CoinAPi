@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.didi1150</groupId>
 	<artifactId>CoinApi</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.7</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -135,7 +135,11 @@
 			<version>1.8.8-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>1.21</version>
+		</dependency>
 	</dependencies>
 	<developers>
 		<developer>

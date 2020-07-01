@@ -4,13 +4,12 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
-
+import org.bukkit.configuration.file.YamlConfiguration;
 import me.didi.coinApi.mysql.MySQL;
 
-public class CoinMain extends JavaPlugin {
+public class CoinMain{
 	File file = new File("plugins/CoinApi", "config.yml");
-	FileConfiguration cfg = this.getConfig();
+	FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
 	public void disconnect() {
 		MySQL.disconnect();
