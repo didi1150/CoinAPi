@@ -6,7 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MySQL {
+import org.bukkit.Bukkit;
+
+import me.didi.coinApi.events.CoinChangeEvent;
+
+public class MySQL
+{
 
 	public static String username;
 	public static String password;
@@ -15,53 +20,70 @@ public class MySQL {
 	public static String host;
 	public static Connection con;
 
-	public static boolean isConnected() {
+	public static boolean isConnected()
+	{
 		return con != null;
 	}
 
-	public static void connect() {
-		if (!isConnected()) {
-			try {
+	public static void connect()
+	{
+		if (!isConnected())
+		{
+			try
+			{
 				con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username,
 						password);
-			} catch (SQLException e) {
+			} catch (SQLException e)
+			{
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void disconnect() {
-		if (isConnected()) {
-			try {
+	public static void disconnect()
+	{
+		if (isConnected())
+		{
+			try
+			{
 				con.close();
 				con = null;
-			} catch (SQLException e) {
+			} catch (SQLException e)
+			{
 				e.printStackTrace();
 			}
 		}
 	}
 
-	
-	public static String getValue(String where) {
+	public static String getValue(String where)
+	{
 		String returnValue = "";
-		try {
+		try
+		{
 			PreparedStatement st = con.prepareStatement("SELECT * FROM coins WHERE UUID = '" + where + "'");
 			ResultSet rs = st.executeQuery();
-			while (rs.next()) {
+			while (rs.next())
+			{
 				returnValue = rs.getString("COINS");
 			}
-		} catch (SQLException e) {
+		} catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 
 		return returnValue;
+
 	}
 
-	public static void setValue(String value, String whereValue) {
-		try {
+	public static void setValue(String value, String whereValue)
+	{
+		try
+		{
 			con.createStatement()
 					.executeUpdate("UPDATE coins SET COINS ='" + value + "' WHERE UUID = '" + whereValue + "'");
-		} catch (SQLException e) {
+			Bukkit.getPluginManager().callEvent(new CoinChangeEvent(Bukkit.getPlayer(whereValue)));
+		} catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 	}
