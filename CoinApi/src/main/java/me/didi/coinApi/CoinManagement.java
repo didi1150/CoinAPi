@@ -1,5 +1,8 @@
 package me.didi.coinApi;
 
+import org.bukkit.Bukkit;
+
+import me.didi.coinApi.events.CoinChangeEvent;
 import me.didi.coinApi.mysql.MySQL;
 
 public class CoinManagement
@@ -22,6 +25,7 @@ public class CoinManagement
 
 		int coinsAfter = coinsBefore + amount;
 		MySQL.setValue(String.valueOf(coinsAfter), uuid);
+		Bukkit.getPluginManager().callEvent(new CoinChangeEvent());
 	}
 
 	public void removeCoins(String uuid, int amount)
@@ -34,10 +38,17 @@ public class CoinManagement
 
 		int coinsAfter = coinsBefore - amount;
 		MySQL.setValue(String.valueOf(coinsAfter), uuid);
+		Bukkit.getPluginManager().callEvent(new CoinChangeEvent());
 	}
 
 	public int getCoins(String uuid)
 	{
 		return Integer.parseInt(MySQL.getValue(uuid));
+	}
+
+	public void setCoins(String uuid, int amount)
+	{
+		MySQL.setValue(String.valueOf(amount), uuid);
+		Bukkit.getPluginManager().callEvent(new CoinChangeEvent());
 	}
 }
