@@ -1,4 +1,4 @@
 name: CoinApi
 author: didi
 version: 1.0
-main: me.didi.coinApi.CoinMain
+main: me.didi.coinApi.Main
