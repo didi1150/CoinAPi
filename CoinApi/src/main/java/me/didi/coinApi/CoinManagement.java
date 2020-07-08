@@ -25,7 +25,7 @@ public class CoinManagement
 
 		int coinsAfter = coinsBefore + amount;
 		MySQL.setValue(String.valueOf(coinsAfter), uuid);
-		Bukkit.getPluginManager().callEvent(new CoinChangeEvent());
+		Bukkit.getPluginManager().callEvent(new CoinChangeEvent(Bukkit.getPlayer(uuid)));
 	}
 
 	public void removeCoins(String uuid, int amount)
@@ -38,7 +38,7 @@ public class CoinManagement
 
 		int coinsAfter = coinsBefore - amount;
 		MySQL.setValue(String.valueOf(coinsAfter), uuid);
-		Bukkit.getPluginManager().callEvent(new CoinChangeEvent());
+		Bukkit.getPluginManager().callEvent(new CoinChangeEvent(Bukkit.getPlayer(uuid)));
 	}
 
 	public int getCoins(String uuid)
@@ -49,6 +49,6 @@ public class CoinManagement
 	public void setCoins(String uuid, int amount)
 	{
 		MySQL.setValue(String.valueOf(amount), uuid);
-		Bukkit.getPluginManager().callEvent(new CoinChangeEvent());
+		Bukkit.getPluginManager().callEvent(new CoinChangeEvent(Bukkit.getPlayer(uuid)));
 	}
 }
