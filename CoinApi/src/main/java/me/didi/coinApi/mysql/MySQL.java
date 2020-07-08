@@ -42,7 +42,6 @@ public class MySQL {
 	}
 
 	
-	/**return the value*/
 	public static String getValue(String where) {
 		String returnValue = "";
 		try {
