@@ -9,24 +9,22 @@ public class CoinChangeEvent extends Event implements Cancellable
 
 	private static HandlerList handlers = new HandlerList();
 	public boolean cancelled = false;
-	
-	
-	@Override
+
 	public boolean isCancelled()
 	{
 		return false;
 	}
 
-	@Override
 	public void setCancelled(boolean cancel)
 	{
 		cancelled = cancel;
 	}
 
-	public static HandlerList getHandlerList() {
+	public static HandlerList getHandlerList()
+	{
 		return handlers;
 	}
-	
+
 	@Override
 	public HandlerList getHandlers()
 	{

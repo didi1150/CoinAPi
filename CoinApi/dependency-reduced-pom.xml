@@ -4,7 +4,7 @@
   <groupId>io.github.didi1150</groupId>
   <artifactId>CoinApi</artifactId>
   <name>CoinApi for CoinSystem</name>
-  <version>1.2</version>
+  <version>1.</version>
   <description>That is the Api for the CoinSystem</description>
   <url>https://github.com/didi1150/CoinAPi</url>
   <developers>
@@ -69,6 +69,9 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <source>8</source>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
