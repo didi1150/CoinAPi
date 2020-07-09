@@ -8,7 +8,7 @@ import org.bukkit.event.HandlerList;
 public class CoinChangeEvent extends Event implements Cancellable
 {
 
-	private static HandlerList handlers = new HandlerList();
+	public static HandlerList handlers = new HandlerList();
 	public boolean cancelled = false;
 	Player p;
 	public Player getPlayer()

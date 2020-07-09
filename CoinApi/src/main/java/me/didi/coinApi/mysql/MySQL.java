@@ -81,7 +81,8 @@ public class MySQL
 		{
 			con.createStatement()
 					.executeUpdate("UPDATE coins SET COINS ='" + value + "' WHERE UUID = '" + whereValue + "'");
-			Bukkit.getPluginManager().callEvent(new CoinChangeEvent(Bukkit.getPlayer(whereValue)));
+			CoinChangeEvent event = new CoinChangeEvent(Bukkit.getPlayer(whereValue));
+			Bukkit.getPluginManager().callEvent(event);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
