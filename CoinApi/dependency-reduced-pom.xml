@@ -4,7 +4,7 @@
   <groupId>io.github.didi1150</groupId>
   <artifactId>CoinApi</artifactId>
   <name>CoinApi for CoinSystem</name>
-  <version>1.7</version>
+  <version>1.8</version>
   <description>That is the Api for the CoinSystem</description>
   <url>https://github.com/didi1150/CoinAPi</url>
   <developers>

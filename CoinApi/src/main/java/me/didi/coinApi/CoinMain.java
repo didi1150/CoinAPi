@@ -7,15 +7,32 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import me.didi.coinApi.mysql.MySQL;
 
-public class CoinMain{
+public class CoinMain
+{
 	File file = new File("plugins/CoinApi", "config.yml");
 	FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
-	public void close() {
+	public CoinMain()
+	{
+		init();
+	}
+
+	public void close()
+	{
 		MySQL.disconnect();
 	}
 
-	public void init() {
+	public void init()
+	{
+		if(!file.exists()) {
+			try
+			{
+				file.createNewFile();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
 		cfg.addDefault("username", "root");
 		cfg.addDefault("password", "");
 		cfg.addDefault("database", "onlinetime");
@@ -30,10 +47,13 @@ public class CoinMain{
 		MySQL.connect();
 	}
 
-	private void saveCfg() {
-		try {
+	private void saveCfg()
+	{
+		try
+		{
 			cfg.save(file);
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 	}
